@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Barbie's Social Feed Project</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    </head>
+    <body>
+        <div class="row">
+            <div class="col">
+                <h1>Barbie Kelly</h1>
+                <img src="profile.jpg" width = "200" alt="Profile Picture">
+            </div>
+            <div id="inputArea" class="col">
+                <h3>New Post</h3>
+                    <div class="row">
+                        <div class="col"><p>Image:</p></div>
+                        <div class="col"><input type="text" id="image" value="paste url for image here"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col"><p>Text:</p></div>
+                        <div class="col"><input type="text" id="text" value="paste text here"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col"><p>Color:</p></div>
+                        <div class="col"><input type="color" id="color" value="#000000"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col"><button id = "submitButton" type="button" class="btn btn-outline-secondary btn-sm">Submit</button></div>
+                    </div>
+            </div>
+        </div>
+        <h2>Feed</h2>
+        <div id="container">
+                <div class = "post 0">
+                    <div class = "row inputRow">
+                        <div class = "col-4 imgColumn">
+                            <img width = "200" src="profile.jpg"></img>
+                        </div>
+                        <div class = "col textColumn">
+                            <p style = "color: #000000">Text Hello World</p>
+                        </div>
+                    </div> 
+                    <div class = "row metaRow">
+                        <div class="col">
+                            <p class = "text-center">Sat Oct 19 2019 12:56:38</p>
+                        </div>
+                        
+                    </div>
+                </div>
+        </div>    
+    </body>
+    <script type="text/javascript" src="script.js"></script>
+</html>

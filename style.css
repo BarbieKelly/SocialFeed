@@ -1,0 +1,21 @@
+#inputArea {
+    border: gray 1px solid;
+}
+
+.input {
+    padding-right: 25px;
+}
+
+#container {
+    border: gray 1px solid;
+}
+
+.post {
+    border: gray 1px solid;
+    padding: 10px;
+    margin: 10px;
+}
+
+.italicDate {
+    font-style: italic;
+}
