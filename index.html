@@ -7,49 +7,38 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     </head>
     <body>
-        <div class="row">
+        <div class="row headerRow align-items-center">
+            <div class="col-4">
+                <h1 class = "text-center">Barbie Kelly</h1>
+                <img class = "img-fluid img-thumbnail" src="profile.jpg" alt="Profile Picture">
+            </div>
             <div class="col">
-                <h1>Barbie Kelly</h1>
-                <img src="profile.jpg" width = "200" alt="Profile Picture">
-            </div>
-            <div id="inputArea" class="col">
-                <h3>New Post</h3>
-                    <div class="row">
-                        <div class="col"><p>Image:</p></div>
-                        <div class="col"><input type="text" id="image" value="paste url for image here"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col"><p>Text:</p></div>
-                        <div class="col"><input type="text" id="text" value="paste text here"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col"><p>Color:</p></div>
-                        <div class="col"><input type="color" id="color" value="#000000"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col"><button id = "submitButton" type="button" class="btn btn-outline-secondary btn-sm">Submit</button></div>
-                    </div>
-            </div>
-        </div>
-        <h2>Feed</h2>
-        <div id="container">
-                <div class = "post 0">
-                    <div class = "row inputRow">
-                        <div class = "col-4 imgColumn">
-                            <img width = "200" src="profile.jpg"></img>
+                <div id="inputArea">
+                    <h3 class = "text-center">Create New Post</h3>
+                        <div class="row">
+                            <div class="col-3"><p>Image:</p></div>
+                            <div class="col"><input type="text" id="image" value="paste url for image here"></div>
                         </div>
-                        <div class = "col textColumn">
-                            <p style = "color: #000000">Text Hello World</p>
+                        <div class="row">
+                            <div class="col-3"><p>Text:</p></div>
+                            <div class="col"><input type="text" id="text" value="paste text here"></div>
                         </div>
-                    </div> 
-                    <div class = "row metaRow">
-                        <div class="col">
-                            <p class = "text-center">Sat Oct 19 2019 12:56:38</p>
+                        <div class="row">
+                            <div class="col-3"><p>Color:</p></div>
+                            <div class="col"><input type="color" id="color" value="#000000"></div>
                         </div>
-                        
-                    </div>
+                        <div class="row">
+                            <div class="col-2"><button id = "submitButton" type="button" class="btn btn-outline-secondary btn-sm">Submit</button></div>
+                            <div class="col-7"></div>
+                            <div class="col-2"><button id = "clearButton" type="button" class="btn btn-outline-danger btn-sm">Clear</button></div>
+                        </div>
                 </div>
-        </div>    
+            </div>
+            
+        </div>
+        <h2 class = "text-center">Feed</h2>
+        <div id="container">
+        </div>   
     </body>
     <script type="text/javascript" src="script.js"></script>
 </html>

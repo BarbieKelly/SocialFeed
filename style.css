@@ -1,21 +1,51 @@
+:root {
+    font-size: 12px;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #133337;
+    background-color: whitesmoke;
+}
+
+.headerRow {
+    margin: 10px;
+}
+
+#text, #image {
+    width: 100%;
+    font-style: italic;
+    color: lightgray;
+}
+
 #inputArea {
-    border: gray 1px solid;
-}
-
-.input {
-    padding-right: 25px;
-}
-
-#container {
-    border: gray 1px solid;
+    border: #127782 3px solid;
+    padding: 10px;
+    background-color: #89ac81;
+    color: #ffa500;
+    border-radius: 1rem;
 }
 
 .post {
-    border: gray 1px solid;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 1rem;
     padding: 10px;
     margin: 10px;
 }
 
 .italicDate {
     font-style: italic;
+    color: lightgray;
+    margin: auto;
+}
+
+.btn-outline-secondary {
+    color: #ffa500;
+    border-color: #ffa500;
+}
+
+.btn-outline-danger {
+    color: #ffa500;
+    border-color: #ffa500;
 }
