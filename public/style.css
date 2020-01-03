@@ -2,10 +2,21 @@
     font-size: 16px;
 }
 
+img {
+    width: 140px;
+}
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: #133337;
     background-color: whitesmoke;
+}
+
+#feedArea {
+    border: black 3px solid;
+}
+
+p {
+    margin: 0px 15px 0px;
 }
 
 .headerRow {

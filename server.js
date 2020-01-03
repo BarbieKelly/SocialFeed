@@ -33,15 +33,16 @@ var app = express();
 var session = require('express-session');
 var cookieParser = require('cookie-parser')
 
-
-// set the view engine to ejs
 app.set('view engine', 'ejs');
+app.use( express.static( "public" ) );
 
-// use res.render to load up an ejs view file
-
-// index page 
+//index page 
 app.get('/', function(req, res) {
-    res.render('pages/index');
+    //Ask Devin/Mitch . . .  How to I remove this profilePicture variable and render? It creates an error. 
+    var profilePicture = "/profile.jpg";
+    res.render('pages/index', {
+        profilePicture: profilePicture
+    });
 });
 
 app.get('/login', function(req, res) {
@@ -179,7 +180,7 @@ app.get('/api/posts/:id', function(req, res){
 // curl --data "body=Hello World" http://localhost:3000/api/posts
 
 app.post('/api/posts', function (req, res) {
-	let data = {
+    let data = {
         date: currentdate,
         body: req.body.body,
 		imageurl : req.body.imageurl,
@@ -197,56 +198,26 @@ app.post('/api/posts', function (req, res) {
   
   //curl -X PUT -d body=hello -d imageurl=http://www.google.com http://localhost:3000/api/posts/31
 
-  app.put('/api/posts/:id', function (req, res) {
+app.put('/api/posts/:id', function (req, res, next) {
     let id = req.params.id;
-    let data = "";
-    let query = "";
-    if (req.body.body & req.body.imageurl) {
-        data = {
-            id: id,
-            body: req.body.body,
-            imageurl : req.body.imageurl,
-        };
-        query = "UPDATE posts SET body=${body}, imageurl=${imageurl} WHERE id=${id}";
+    Posts.update ({
+        body: req.body.body,
+        imageurl : req.body.imageurl,
+        color: req.body.color,
+    }, {
+        where: {
+            id: id
+        },
+        returning: true
     }
-    else if (req.body.body) {
-        data = {
-            id: id,
-            body: req.body.body,
-        };
-        query = "UPDATE posts SET body=${body} WHERE id=${id}";
-    }
-    else if (req.body.imageurl) {
-        data = {
-            id: id,
-            imageurl : req.body.imageurl,
-        };
-        query = "UPDATE posts SET imageurl=${imageurl} WHERE id=${id}";
-    }
-    else {
-        console.error(e);
-    }
-    db.one(query, data)
-        .then((result) => {
-            db.one(query, data)
-                .then((result) => {
-                    db.one("SELECT * FROM posts JOIN users ON posts.user_id=users.user_id WHERE posts.id=$1", [result.id])
-                        .then((results) => {
-                            res.setHeader('Content-Type', 'application/json');
-                            res.end(JSON.stringify(results));
-                        })
-                        .catch((e) => {
-                            console.error(e);
-                        });
-                })
-                .catch((e) => {
-                    console.error(e);
-                });
-        })
-        .catch((e) => {
-            console.error(e);
-        });
-});
+    )
+    .then(function (user) {
+        res.json(user);
+    })
+	.catch((e) => {
+	    console.error(e);
+    })
+})
 
 /////////////////////////////////
 //curl -X DELETE http://localhost:3000/api/posts/100
